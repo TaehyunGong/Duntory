@@ -11,8 +11,9 @@
 <h1>
 	여기는 던토리 메인 페이지입니다.
 </h1>
-<form action='' method='post'>
-	<input name='nick'>
+<form action='join.me' method='post'>
+	<input name='userId'>
+	<input name='userPwd'>
 	<button>제출</button>
 </form>
 <div id='result'>
