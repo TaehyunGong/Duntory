@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace='Member'>
+   	<resultMap id="MemberResultSet" type="Member">
+		<id property="mid" column="MID"/>
+		<result property="userId" column="USERID"/>
+		<result property="userPwd" column="USERPWD"/>
+		<result property="saveId" column="SAVEID"/>
+	</resultMap>
+	
+	<select id="selectLogin" resultMap="MemberResultSet" parameterType="Member">
+		SELECT * FROM MEMBER WHERE USERID = #{userId}
+	</select>
+	
+	<select id="selectEncPwd" resultType="java.lang.String" parameterType="Member">
+		SELECT userPwd FROM MEMBER WHERE USERID = #{userId}
+	</select>
+	
+	<insert id="insertJoinUser" parameterType="Member">
+		INSERT INTO MEMBER (userId, userPwd)
+		VALUES(#{userId},#{userPwd})
+	</insert>
+	
+</mapper>
