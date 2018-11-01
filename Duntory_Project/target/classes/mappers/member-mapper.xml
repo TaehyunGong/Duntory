@@ -23,4 +23,8 @@
 		VALUES(#{userId},#{userPwd})
 	</insert>
 	
+	<select id="selectJoinCheckId" resultType="Int" parameterType="String">
+		SELECT COUNT(*) FROM MEMBER WHERE USERID = #{userId}
+	</select>
+	
 </mapper>
