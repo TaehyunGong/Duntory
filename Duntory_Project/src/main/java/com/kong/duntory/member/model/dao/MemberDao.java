@@ -10,4 +10,6 @@ public interface MemberDao {
 
 	int insertJoinUser(Member m);
 
+	int selectJoinCheckId(String userId);
+
 }

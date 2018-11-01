@@ -9,4 +9,6 @@ public interface MemberService {
 
 	int joinUser(Member m);
 
+	int joinCheckId(String userId);
+
 }

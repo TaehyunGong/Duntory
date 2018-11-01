@@ -27,4 +27,9 @@ public class MemberDaoImpl implements MemberDao {
 		return sqlsession.insert("Member.insertJoinUser",m);
 	}
 
+	@Override
+	public int selectJoinCheckId(String userId) {
+		return sqlsession.selectOne("Member.selectJoinCheckId",userId);
+	}
+
 }
