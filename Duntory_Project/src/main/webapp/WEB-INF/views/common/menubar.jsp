@@ -32,7 +32,7 @@
 	      <a class="navbar-brand" href="#">Duntory</a>
 	    </div>
 	    <ul class="nav navbar-nav">
-	      <li><a href="#">캐릭터 검색</a></li>
+	      <li><a href="charSearchForward.search">캐릭터 검색</a></li>
 	      <li><a href="#">서버 검색</a></li>
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
