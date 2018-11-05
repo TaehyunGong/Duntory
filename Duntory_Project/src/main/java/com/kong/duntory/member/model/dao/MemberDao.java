@@ -1,6 +1,7 @@
 package com.kong.duntory.member.model.dao;
 
 import com.kong.duntory.member.model.vo.Member;
+import com.kong.duntory.member.model.vo.WishList;
 
 public interface MemberDao {
 
@@ -11,5 +12,11 @@ public interface MemberDao {
 	int insertJoinUser(Member m);
 
 	int selectJoinCheckId(String userId);
+
+	int selectWishList(WishList wish);
+
+	int insertWishList(WishList wish);
+
+	int deleteWishList(WishList wish);
 
 }

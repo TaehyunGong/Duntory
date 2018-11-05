@@ -25,31 +25,31 @@
 			</div>
 		</div>
 		
-		<div class='server_box box'>
+		<div id='serverCheckBoxBox' class='server_box box'>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox1" name='server' value="cain"> 카인
+			  <input type="checkbox" id="server" name='server' value="cain" checked> 카인
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox2" name='server' value="diregie"> 디레지에
+			  <input type="checkbox" id="server" name='server' value="diregie" checked> 디레지에
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="siroco"> 시로코
+			  <input type="checkbox" id="server" name='server' value="siroco" checked> 시로코
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="prey"> 프레이
+			  <input type="checkbox" id="server" name='server' value="prey" checked> 프레이
 			</label>
 			<br>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="casillas"> 카시야스
+			  <input type="checkbox" id="server" name='server' value="casillas" checked> 카시야스
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="hilder"> 힐더
+			  <input type="checkbox" id="server" name='server' value="hilder" checked> 힐더
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="anton"> 안톤
+			  <input type="checkbox" id="server" name='server' value="anton" checked> 안톤
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" name='server' value="bakal"> 바칼
+			  <input type="checkbox" id="server" name='server' value="bakal" checked> 바칼
 			</label>
 		</div>
 		
@@ -61,6 +61,13 @@
 		<a href="http://developers.neople.co.kr" target="_blank">
 		<img src="${contextPath}/resources/images/Neople_logo.png" alt="Neople 오픈 API"/> </a>
 </div>
+
+<script>
+	var sessionMid = -1;
+	<c:if test='${!empty sessionScope.loginUser}'>
+		sessionMid = ${sessionScope.loginUser.mid};
+	</c:if>
+</script>
 
 </body>
 </html>

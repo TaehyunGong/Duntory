@@ -12,6 +12,7 @@ public class charSearch implements java.io.Serializable{
 	private String server;
 	private String guildId;
 	private String guildName;
+	private String wishList;
 	
 	public String getGuildId() {
 		return guildId;
@@ -19,8 +20,14 @@ public class charSearch implements java.io.Serializable{
 	public void setGuildId(String guildId) {
 		this.guildId = guildId;
 	}
+	public String getWishList() {
+		return wishList;
+	}
+	public void setWishList(String wishList) {
+		this.wishList = wishList;
+	}
 	public charSearch(String characterId, String characterName, String level, String jobId, String jobGrowId,
-			String jobName, String jobGrowName, String server, String guildId, String guildName) {
+			String jobName, String jobGrowName, String server, String guildId, String guildName, String wishList) {
 		super();
 		this.characterId = characterId;
 		this.characterName = characterName;
@@ -32,6 +39,7 @@ public class charSearch implements java.io.Serializable{
 		this.server = server;
 		this.guildId = guildId;
 		this.guildName = guildName;
+		this.wishList = wishList;
 	}
 	public charSearch() {
 	}

@@ -1,6 +1,7 @@
 package com.kong.duntory.member.model.service;
 
 import com.kong.duntory.member.model.vo.Member;
+import com.kong.duntory.member.model.vo.WishList;
 
 public interface MemberService {
 
@@ -10,5 +11,7 @@ public interface MemberService {
 	int joinUser(Member m);
 
 	int joinCheckId(String userId);
+
+	int insertWishList(WishList wish);
 
 }
