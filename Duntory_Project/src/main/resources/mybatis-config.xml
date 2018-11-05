@@ -5,6 +5,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.kong.duntory.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.kong.duntory.member.model.vo.WishList" alias="WishList"/>
 	</typeAliases>
 	
 </configuration>

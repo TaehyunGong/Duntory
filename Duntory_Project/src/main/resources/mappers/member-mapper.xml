@@ -27,4 +27,17 @@
 		SELECT COUNT(*) FROM MEMBER WHERE USERID = #{userId}
 	</select>
 	
+	<select id="selectWishList" resultType="Int" parameterType="WishList">
+		SELECT COUNT(*) FROM Wishlist WHERE mid = #{mid} AND char_id = #{char_id}
+	</select>
+	
+	<insert id="insertWishList" parameterType="WishList">
+		INSERT INTO Wishlist (mid, char_id)
+		VALUES(#{mid},#{char_id})
+	</insert>
+	
+	<delete id="deleteWishList" parameterType="WishList">
+		DELETE FROM Wishlist WHERE mid = #{mid} AND char_id = #{char_id}
+	</delete>
+	
 </mapper>

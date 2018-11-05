@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.kong.duntory.member.model.vo.Member;
+import com.kong.duntory.member.model.vo.WishList;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
@@ -30,6 +31,21 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int selectJoinCheckId(String userId) {
 		return sqlsession.selectOne("Member.selectJoinCheckId",userId);
+	}
+
+	@Override
+	public int selectWishList(WishList wish) {
+		return sqlsession.selectOne("Member.selectWishList",wish);
+	}
+
+	@Override
+	public int insertWishList(WishList wish) {
+		return sqlsession.insert("Member.insertWishList",wish);
+	}
+
+	@Override
+	public int deleteWishList(WishList wish) {
+		return sqlsession.delete("Member.deleteWishList",wish);
 	}
 
 }

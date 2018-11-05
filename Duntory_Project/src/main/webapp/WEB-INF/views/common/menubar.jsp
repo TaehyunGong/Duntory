@@ -42,6 +42,9 @@
 		      </li>
 	      </c:if>
 	      <c:if test="${sessionScope.loginUser != null}">
+	      	  <li>
+			      <a class='btn' onclick=''>모험단 보기</a>
+		      </li>
 		      <li>
 			      <a class='btn' onclick='logout()'>${sessionScope.loginUser.userId}</a>
 		      </li>

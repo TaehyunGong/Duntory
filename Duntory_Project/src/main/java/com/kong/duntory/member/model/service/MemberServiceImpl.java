@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.kong.duntory.member.model.dao.MemberDao;
 import com.kong.duntory.member.model.vo.Member;
+import com.kong.duntory.member.model.vo.WishList;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -39,6 +40,20 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int joinCheckId(String userId) {
 		return Memberdao.selectJoinCheckId(userId);
+	}
+
+	@Override
+	public int insertWishList(WishList wish) {
+		
+		if(Memberdao.selectWishList(wish) == 0){	//계정에 등록 안된 캐릭이라면 등록
+			if(Memberdao.insertWishList(wish) == 1)
+				return 1;
+		}else{										//등록된 계정이라면 등록 해제
+			if(Memberdao.deleteWishList(wish) == 1)
+				return 2;
+		}
+		
+		return 0;
 	}
 
 }

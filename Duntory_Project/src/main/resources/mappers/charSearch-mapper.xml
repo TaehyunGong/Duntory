@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace='CharSearch'>
+   	<resultMap id="CharSearchResultSet" type="WishList">
+		<id property="wid" column="wid"/>
+		<result property="mid" column="mid"/>
+		<result property="char_id" column="char_id"/>
+	</resultMap>
+	
+	<select id="selectWishList" resultMap="CharSearchResultSet" parameterType="Member">
+		SELECT * FROM Wishlist WHERE mid = #{mid}
+	</select>
+	
+</mapper>

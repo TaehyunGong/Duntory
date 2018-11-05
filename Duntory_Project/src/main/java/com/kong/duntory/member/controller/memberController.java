@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kong.duntory.member.model.service.MemberService;
 import com.kong.duntory.member.model.vo.Member;
+import com.kong.duntory.member.model.vo.WishList;
 
 @Controller
 public class memberController {
@@ -76,5 +77,26 @@ public class memberController {
 		}
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="adventrueEnroll.me")
+	public void adventrueEnroll(String id, HttpServletRequest req, HttpServletResponse res){
+		
+		HttpSession session = req.getSession();
+		Member m = (Member)session.getAttribute("loginUser");
+		WishList wish = new WishList();
+		int result = -1;
+		if(m != null){
+			wish.setMid(m.getMid());
+			wish.setChar_id(id);
+			result = memberservice.insertWishList(wish);
+		}
+		
+		try {
+			res.getWriter().print(result);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
