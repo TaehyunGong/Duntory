@@ -23,15 +23,15 @@ $(document).ready(function(){
 							console.log('--');
 						}else{
 							//console.log(list.rows[0].characterName);\
-							$.each(list.rows, function(key, value){
+							$.each(list, function(key, value){
 								console.log(value);
 								$('#result_box').append("<div class='col-md-3'>"+
 									"<div class='img_box'>"+
-										"<img src='https://img-api.neople.co.kr/df/servers/bakal/characters/" + value.characterId + "?zoom=1'>"+
+										"<img src='https://img-api.neople.co.kr/df/servers/" + value.server +"/characters/" + value.characterId + "?zoom=1'>"+
 									"</div>"+
 									"<div class='info_box center-block'>"+
 										"<p class='job_box'>" + value.jobGrowName + "</p>"+
-										"<label class='server_box'>[바칼]</label>"+
+										"<label class='server_box'>[" + serverCheck(value.server) + "]&nbsp;</label>"+
 										"<label class='nick_box'>"+ value.characterName + "</label>"+
 									"</div>"+
 								"</div>");
@@ -53,3 +53,16 @@ $(document).ready(function(){
     });
 	
 });
+
+function serverCheck(server){
+	switch(server){
+	case 'diregie' : return '디레지에'
+	case 'siroco' : return '시로코'
+	case 'prey' : return '프레이'
+	case 'hilder' : return '힐더'
+	case 'bakal' : return '바칼'
+	case 'anton' : return '안톤'
+	case 'casillas' : return '카시야스'
+	case 'cain' : return '카인'
+	}
+}
