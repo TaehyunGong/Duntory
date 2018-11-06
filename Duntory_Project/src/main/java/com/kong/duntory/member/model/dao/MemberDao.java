@@ -1,5 +1,7 @@
 package com.kong.duntory.member.model.dao;
 
+import java.util.ArrayList;
+
 import com.kong.duntory.member.model.vo.Member;
 import com.kong.duntory.member.model.vo.WishList;
 
@@ -18,5 +20,7 @@ public interface MemberDao {
 	int insertWishList(WishList wish);
 
 	int deleteWishList(WishList wish);
+
+	ArrayList<WishList> selectMemberWishList(Member m);
 
 }

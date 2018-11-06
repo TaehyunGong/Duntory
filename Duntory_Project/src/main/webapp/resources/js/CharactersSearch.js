@@ -54,7 +54,7 @@ function charSearch(){
 									"<label class='server_box'>Lv.&nbsp;" + value.level + "&nbsp;</label>"+
 									"<label class='nick_box'>"+ value.characterName + "</label>"+
 								"</div>"+
-								"<button onclick='adventrue_enroll(this, event, \"" + value.characterId + "\")'" + wishListCheck(value.wishList) +
+								"<button onclick='adventrue_enroll(this, event, \"" + value.characterId + "\", \"" + value.server + "\")'" + wishListCheck(value.wishList) +
 							"</div>"+
 						"</div>");
 					});
@@ -81,7 +81,7 @@ function charDetail(id){
 	console.log(id);
 }
 
-function adventrue_enroll(btn, event, id){
+function adventrue_enroll(btn, event, id, server){
 	event.stopPropagation();
 	if(sessionMid === -1){
 		alert('로그인 해야지만 등록할수 있습니다.');
@@ -91,7 +91,8 @@ function adventrue_enroll(btn, event, id){
 	$.ajax({
 		url:'adventrueEnroll.me',
 		data:{
-			id:id
+			id:id,
+			server:server
 		},
 		success:function(data){
 			console.log(data);

@@ -5,15 +5,24 @@ public class WishList implements java.io.Serializable{
 	private int wid;
 	private int mid;
 	private String char_id;
+	private String server;
+	
 	public WishList() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public WishList(int wid, int mid, String char_id) {
+	public String getServer() {
+		return server;
+	}
+	public void setServer(String server) {
+		this.server = server;
+	}
+	public WishList(int wid, int mid, String char_id, String server) {
 		super();
 		this.wid = wid;
 		this.mid = mid;
 		this.char_id = char_id;
+		this.server = server;
 	}
 	public int getWid() {
 		return wid;

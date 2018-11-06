@@ -10,6 +10,12 @@
 		<result property="saveId" column="SAVEID"/>
 	</resultMap>
 	
+	<resultMap id="WishListResultSet" type="WishList">
+		<id property="wid" column="wid"/>
+		<result property="mid" column="mid"/>
+		<result property="char_id" column="char_id"/>
+	</resultMap>
+	
 	<select id="selectLogin" resultMap="MemberResultSet" parameterType="Member">
 		SELECT * FROM MEMBER WHERE USERID = #{userId}
 	</select>
@@ -32,12 +38,16 @@
 	</select>
 	
 	<insert id="insertWishList" parameterType="WishList">
-		INSERT INTO Wishlist (mid, char_id)
-		VALUES(#{mid},#{char_id})
+		INSERT INTO Wishlist (mid, char_id, server)
+		VALUES(#{mid},#{char_id}, #{server})
 	</insert>
 	
 	<delete id="deleteWishList" parameterType="WishList">
 		DELETE FROM Wishlist WHERE mid = #{mid} AND char_id = #{char_id}
 	</delete>
+		
+	<select id="selectMemberWishList" resultMap="WishListResultSet" parameterType="Member">
+		SELECT * FROM Wishlist WHERE mid = #{mid}
+	</select>
 	
 </mapper>

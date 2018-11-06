@@ -1,5 +1,7 @@
 package com.kong.duntory.member.model.dao;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -46,6 +48,11 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public int deleteWishList(WishList wish) {
 		return sqlsession.delete("Member.deleteWishList",wish);
+	}
+
+	@Override
+	public ArrayList<WishList> selectMemberWishList(Member m) {
+		return (ArrayList)sqlsession.selectList("Member.selectMemberWishList", m);
 	}
 
 }
