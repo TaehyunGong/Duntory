@@ -1,5 +1,7 @@
 package com.kong.duntory.member.model.service;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -54,6 +56,11 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 		return 0;
+	}
+
+	@Override
+	public ArrayList<WishList> selectMemberWishList(Member m) {
+		return Memberdao.selectMemberWishList(m);
 	}
 
 }

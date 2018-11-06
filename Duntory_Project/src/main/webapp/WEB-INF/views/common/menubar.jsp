@@ -29,7 +29,7 @@
 	<nav class="navbar navbar-light">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="#">Duntory</a>
+	      <a class="navbar-brand" href="${contextPath}">Duntory</a>
 	    </div>
 	    <ul class="nav navbar-nav">
 	      <li><a href="charSearchForward.search">캐릭터 검색</a></li>
@@ -43,7 +43,7 @@
 	      </c:if>
 	      <c:if test="${sessionScope.loginUser != null}">
 	      	  <li>
-			      <a class='btn' onclick=''>모험단 보기</a>
+			      <a class='btn' onclick='location.href="myPageForward.me"'>모험단 보기</a>
 		      </li>
 		      <li>
 			      <a class='btn' onclick='logout()'>${sessionScope.loginUser.userId}</a>
