@@ -11,19 +11,11 @@
 <h1>
 	여기는 던토리 메인 페이지입니다.
 </h1>
-<h1>${loginUser}</h1>
 <div id='result'>
 </div>
 
 <a href="http://developers.neople.co.kr" target="_blank">
 <img src="${contextPath}/resources/images/Neople_logo.png" alt="Neople 오픈 API"/> </a>
-
-<script>
-	$(function(){
-		var value = ${server};
-		$('#result').append("<img src='https://img-api.neople.co.kr/df/servers/bakal/characters/" + value.rows[0].characterId +"?zoom=1'>")
-	})
-</script>
 
 </body>
 </html>
