@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 <title>Duntory</title>
 	<link href="${contextPath}/resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link href="${contextPath}/resources/css/menubar.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> 
 	 
 	<script src="${contextPath}/resources/js/jquery-3.3.1.min.js"></script>
     <script src="${contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
@@ -26,7 +28,7 @@
   }
   </style>
 <body>
-	<nav class="navbar navbar-light">
+	<nav class="navbar  navbar-light" style="background-color: #e3f2fd;">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="${contextPath}">Duntory</a>
@@ -55,7 +57,7 @@
 </body>
 
 <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="myModal"  role="dialog">
     <div class="modal-dialog" style='width:400px'>
     
       <!-- Modal content-->

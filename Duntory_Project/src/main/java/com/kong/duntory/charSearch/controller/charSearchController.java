@@ -23,6 +23,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.kong.duntory.charSearch.model.service.CharSearchService;
 import com.kong.duntory.charSearch.model.vo.charSearch;
+import com.kong.duntory.charSearch.model.vo.equipmentDetail;
 import com.kong.duntory.member.model.vo.Member;
 import com.kong.duntory.member.model.vo.WishList;
 
@@ -40,15 +41,16 @@ public class charSearchController {
 	}
 	
 	@RequestMapping(value="searchChar.search")
-	public void searchChar(String search, String server, HttpServletRequest req, HttpServletResponse res){
-		
+	public void searchChar(String search, String server, String level, HttpServletRequest req, HttpServletResponse res){
 		String[] servers = server.split(",");
 		String result = "";
 		ArrayList<charSearch> allList = new ArrayList<charSearch>();
 		Gson gson = new Gson();
+		String wordType = "full";
+		if(search.length() == 1) wordType="match";
 		for(int i=0 ; i<servers.length; i++){
 			try{
-				URL url = new URL("https://api.neople.co.kr/df/servers/" + servers[i] + "/characters?characterName=" + URLEncoder.encode(search, "UTF-8") + "&wordType=full&apikey="+APIKEY);
+				URL url = new URL("https://api.neople.co.kr/df/servers/" + servers[i] + "/characters?characterName=" + URLEncoder.encode(search, "UTF-8") + "&wordType=" + wordType +"&apikey="+APIKEY);
 				
 				HttpURLConnection connection = (HttpURLConnection) url
 						.openConnection();
@@ -67,8 +69,15 @@ public class charSearchController {
 				
 				charSearch[] list = gson.fromJson(jsonArray, charSearch[].class);
 				for(int n=0; n<list.length;n++){
-					list[n].setServer(servers[i]);
-					allList.add(list[n]);
+					if(level.equals("0")){
+						list[n].setServer(servers[i]);
+						allList.add(list[n]);
+					}else{
+						if(list[n].getLevel().equals(level)){
+							list[n].setServer(servers[i]);
+							allList.add(list[n]);
+						}
+					}
 				}
 				
 				br.close();
@@ -103,6 +112,47 @@ public class charSearchController {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	@RequestMapping(value="charDetail.search")
+	public void charDetail(String id, String server, HttpServletResponse res){
+		Gson gson = new Gson();
+		String result = "";
+		
+		try{
+			
+			URL url = new URL("https://api.neople.co.kr/df/servers/" + server + "/characters/" + id + "/equip/equipment?apikey="+APIKEY);
+			
+			HttpURLConnection connection = (HttpURLConnection) url
+					.openConnection();
+			connection.setRequestMethod("GET");
+			
+			InputStream is = connection.getInputStream();
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(is));
+			String readLine = null;
+			while ((readLine = br.readLine()) != null) {
+				result = readLine;
+			}
+			
+			equipmentDetail equip = gson.fromJson(result, equipmentDetail.class);
+			System.out.println(equip);
+			
+			br.close();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			res.getWriter().print("");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

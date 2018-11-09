@@ -23,4 +23,6 @@ public interface MemberDao {
 
 	ArrayList<WishList> selectMemberWishList(Member m);
 
+	int deleteAdventure(WishList list);
+
 }

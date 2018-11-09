@@ -63,4 +63,9 @@ public class MemberServiceImpl implements MemberService{
 		return Memberdao.selectMemberWishList(m);
 	}
 
+	@Override
+	public int deleteAdventure(WishList list) {
+		return Memberdao.deleteAdventure(list);
+	}
+
 }

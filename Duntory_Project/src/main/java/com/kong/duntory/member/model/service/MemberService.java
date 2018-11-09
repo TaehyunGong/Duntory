@@ -18,4 +18,6 @@ public interface MemberService {
 
 	ArrayList<WishList> selectMemberWishList(Member m);
 
+	int deleteAdventure(WishList list);
+
 }

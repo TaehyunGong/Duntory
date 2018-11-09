@@ -12,6 +12,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -242,5 +243,29 @@ public class memberController {
 		req.setAttribute("fatality", fatality);
 		
 		return "member/myPage";
+	}
+	
+	@RequestMapping(value="deleteAdventure.me")
+	public void deleteAdventure(String id, HttpServletRequest req,HttpServletResponse res){
+		
+		HttpSession session = req.getSession();
+		Member m = (Member) session.getAttribute("loginUser");
+		int result = 0;
+		
+		if(m == null){
+			result = 0;
+		}else{
+			WishList wishlist = new WishList();
+			wishlist.setChar_id(id);
+			wishlist.setMid(m.getMid());
+			result = memberservice.deleteAdventure(wishlist);
+		}
+		
+		try {
+			res.getWriter().print(result);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
