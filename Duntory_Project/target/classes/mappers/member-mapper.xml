@@ -4,10 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace='Member'>
    	<resultMap id="MemberResultSet" type="Member">
-		<id property="mid" column="MID"/>
-		<result property="userId" column="USERID"/>
-		<result property="userPwd" column="USERPWD"/>
-		<result property="saveId" column="SAVEID"/>
+		<id property="mid" column="mid"/>
+		<result property="userId" column="userId"/>
+		<result property="userPwd" column="userPwd"/>
+		<result property="saveId" column="saveId"/>
 	</resultMap>
 	
 	<resultMap id="WishListResultSet" type="WishList">
@@ -17,37 +17,41 @@
 	</resultMap>
 	
 	<select id="selectLogin" resultMap="MemberResultSet" parameterType="Member">
-		SELECT * FROM MEMBER WHERE USERID = #{userId}
+		SELECT * FROM member WHERE userId = #{userId}
 	</select>
 	
 	<select id="selectEncPwd" resultType="java.lang.String" parameterType="Member">
-		SELECT userPwd FROM MEMBER WHERE USERID = #{userId}
+		SELECT userPwd FROM member WHERE userId = #{userId}
 	</select>
 	
 	<insert id="insertJoinUser" parameterType="Member">
-		INSERT INTO MEMBER (userId, userPwd)
+		INSERT INTO member (userId, userPwd)
 		VALUES(#{userId},#{userPwd})
 	</insert>
 	
 	<select id="selectJoinCheckId" resultType="Int" parameterType="String">
-		SELECT COUNT(*) FROM MEMBER WHERE USERID = #{userId}
+		SELECT COUNT(*) FROM member WHERE userId = #{userId}
 	</select>
 	
 	<select id="selectWishList" resultType="Int" parameterType="WishList">
-		SELECT COUNT(*) FROM Wishlist WHERE mid = #{mid} AND char_id = #{char_id}
+		SELECT COUNT(*) FROM wishlist WHERE mid = #{mid} AND char_id = #{char_id}
 	</select>
 	
 	<insert id="insertWishList" parameterType="WishList">
-		INSERT INTO Wishlist (mid, char_id, server)
+		INSERT INTO wishlist (mid, char_id, server)
 		VALUES(#{mid},#{char_id}, #{server})
 	</insert>
 	
 	<delete id="deleteWishList" parameterType="WishList">
-		DELETE FROM Wishlist WHERE mid = #{mid} AND char_id = #{char_id}
+		DELETE FROM wishlist WHERE mid = #{mid} AND char_id = #{char_id}
 	</delete>
 		
 	<select id="selectMemberWishList" resultMap="WishListResultSet" parameterType="Member">
-		SELECT * FROM Wishlist WHERE mid = #{mid}
+		SELECT * FROM wishlist WHERE mid = #{mid}
 	</select>
+	
+	<delete id="deleteAdventure" parameterType="WishList">
+		DELETE FROM wishlist WHERE mid = #{mid} AND char_id = #{char_id}
+	</delete>
 	
 </mapper>

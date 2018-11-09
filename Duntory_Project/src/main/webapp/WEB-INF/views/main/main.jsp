@@ -10,20 +10,20 @@
 <jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
 <h1>
 	여기는 던토리 메인 페이지입니다.
+	<br>
+	현재 지속적으로 개발 중입니다.
+	<br>
+	 - 앞으로 계획들 -
+	<ul>
+		<li>코디 조회</li>
+		<li>신고기능</li>
+		<li>자캐 변천사</li>
+	</ul>
+	문의 : tony950620@naver.com
 </h1>
-<h1>${loginUser}</h1>
-<div id='result'>
-</div>
 
 <a href="http://developers.neople.co.kr" target="_blank">
 <img src="${contextPath}/resources/images/Neople_logo.png" alt="Neople 오픈 API"/> </a>
-
-<script>
-	$(function(){
-		var value = ${server};
-		$('#result').append("<img src='https://img-api.neople.co.kr/df/servers/bakal/characters/" + value.rows[0].characterId +"?zoom=1'>")
-	})
-</script>
 
 </body>
 </html>

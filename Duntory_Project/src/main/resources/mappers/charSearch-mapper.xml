@@ -10,7 +10,7 @@
 	</resultMap>
 	
 	<select id="selectWishList" resultMap="CharSearchResultSet" parameterType="Member">
-		SELECT * FROM Wishlist WHERE mid = #{mid}
+		SELECT * FROM wishlist WHERE mid = #{mid}
 	</select>
 	
 </mapper>

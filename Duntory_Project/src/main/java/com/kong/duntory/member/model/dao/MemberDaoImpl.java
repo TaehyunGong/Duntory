@@ -55,4 +55,9 @@ public class MemberDaoImpl implements MemberDao {
 		return (ArrayList)sqlsession.selectList("Member.selectMemberWishList", m);
 	}
 
+	@Override
+	public int deleteAdventure(WishList list) {
+		return sqlsession.delete("Member.deleteAdventure", list);
+	}
+
 }
