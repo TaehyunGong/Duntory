@@ -44,7 +44,7 @@ public class WishList implements java.io.Serializable{
 	}
 	@Override
 	public String toString() {
-		return "WishList [wid=" + wid + ", mid=" + mid + ", char_id=" + char_id + "]";
+		return "WishList [wid=" + wid + ", mid=" + mid + ", char_id=" + char_id + ", server=" + server + "]";
 	}
 	
 	

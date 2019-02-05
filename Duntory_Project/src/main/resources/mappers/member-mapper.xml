@@ -14,6 +14,7 @@
 		<id property="wid" column="wid"/>
 		<result property="mid" column="mid"/>
 		<result property="char_id" column="char_id"/>
+		<result property="server" column="server"/>
 	</resultMap>
 	
 	<select id="selectLogin" resultMap="MemberResultSet" parameterType="Member">

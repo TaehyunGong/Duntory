@@ -42,6 +42,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public int insertWishList(WishList wish) {
+		System.out.println(wish);
 		return sqlsession.insert("Member.insertWishList",wish);
 	}
 
