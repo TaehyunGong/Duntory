@@ -9,7 +9,7 @@
         <property name="driverClass" value="org.mariadb.jdbc.Driver"></property>
         <property name="url" value="jdbc:mariadb://35.231.50.242:3306/duntory"></property>
         <property name="username" value="duntory"></property>
-        <property name="password" value="sky950!!"></property>
+        <property name="password" value="***"></property>
     </bean>
  
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
