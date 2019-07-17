@@ -33,7 +33,7 @@ public class charSearchController {
 	@Autowired
 	private CharSearchService charSearchService;
 	
-	private final String APIKEY = "P4GiGs1KtJyD3VoMB3jkgzDsMI4tDNGi";
+	private final String APIKEY = "**********";
 	
 	@RequestMapping(value="charSearchForward.search")
 	public String charSearchForward(){
